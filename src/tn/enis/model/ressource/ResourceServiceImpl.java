@@ -1,4 +1,4 @@
-package tn.enis.model.resource;
+package tn.enis.model.ressource;
 
 import java.util.List;
 
@@ -15,29 +15,29 @@ public class ResourceServiceImpl implements ResourceService {
 	}
 
 	@Override
-	public void ajoutResource(Resource resource) {
+	public void ajoutResource(Ressource resource) {
 		resourceDao.ajouter(resource);
 	}
 
 	@Override
-	public void supprimerResource(Resource resource) {
+	public void supprimerResource(Ressource resource) {
 		resourceDao.supprimer(resource);
 	}
 
 	@Override
-	public void modifierResource(Resource resource) {
+	public void modifierResource(Ressource resource) {
 		resourceDao.modifier(resource);
 	}
 
 	@Override
-	public List<Resource> getResourceList() {
-		resourceDao.findAll(Resource.class);
+	public List<Ressource> getResourceList() {
+		resourceDao.findAll(Ressource.class);
 		return null;
 	}
 
 	@Override
-	public Resource chercherParId(Integer id) {
-		resourceDao.findByID(Resource.class, id);
+	public Ressource chercherParId(Integer id) {
+		resourceDao.findByID(Ressource.class, id);
 		return null;
 	}
 

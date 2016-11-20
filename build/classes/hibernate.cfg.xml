@@ -10,6 +10,8 @@
 		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 		<property name="show_sql">true</property>
 		<property name="hbm2ddl.auto">update</property>
-		<mapping class="tn.enis.model.resource.Resource"/>
+		<mapping class="tn.enis.model.ressource.Ressource" />
+		<mapping class="tn.enis.model.projet.Projet" />
+		<mapping class="tn.enis.model.tache.Tache" />
 	</session-factory>
 </hibernate-configuration>
