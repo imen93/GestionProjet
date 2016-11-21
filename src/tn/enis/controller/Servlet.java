@@ -61,6 +61,12 @@ public class Servlet extends HttpServlet {
 			Projet projetSupp=serviceProjet.findByID(Integer.parseInt(requestPramIdSupp));
 			serviceProjet.supprimerProduit(projetSupp);
 		}
+		String nomProjetAmodifier=request.getParameter("nomProjetAmodifier");
+		if(nomProjetAmodifier!=null){
+			int idProjetAmodifier=Integer.parseInt(request.getParameterValues("idProjetAmodifier")[0]);
+			Projet projetAmodifier=new Projet(idProjetAmodifier,nomProjetAmodifier);
+			serviceProjet.modifierProduit(projetAmodifier);
+		}
 		
 		TacheDAO tacheDao = new TacheDAOImpl();
 		TacheService serviceTache = new TacheServiceImpl(tacheDao);

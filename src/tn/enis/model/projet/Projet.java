@@ -28,6 +28,11 @@ public class Projet {
 		this.nom_projet = nom_projet;
 	}
 
+	public Projet(int id_projet, String nom_projet) {
+		this.id_projet = id_projet;
+		this.nom_projet = nom_projet;
+	}
+
 	public void setId_projet(int id_projet) {
 		this.id_projet = id_projet;
 	}

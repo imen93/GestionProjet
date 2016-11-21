@@ -158,9 +158,9 @@
 					</div>
 					<!-- /.panel -->
 					<div style="text-align: center;">
-						<button type="button" class="btn btn-warning btn-circle btn-lg">
-							<i class="fa fa-link" data-toggle="modal"
-								data-target="#myModalUpdateProject"></i>
+						<button type="button" class="btn btn-warning btn-circle btn-lg" data-toggle="modal" 
+						data-target="#myModalUpdateProject">
+							<i class="fa fa-link" ></i>
 						</button>
 						<button type="button" class="btn btn-danger btn-circle btn-lg"
 							data-toggle="modal" data-target="#myModalProjet" >
@@ -216,7 +216,7 @@
 		</div>
 	</div>
 
-	<!-- modal ajout-->
+	<!-- modal update-->
 	<div class="modal fade" id="myModalUpdateProject" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -227,19 +227,18 @@
 
 				<div class="modal-body">
 
-					<form id="formUpdate" class="form-horizontal" role="form">
+					<form id="formUpdate" class="form-horizontal" role="form" action="Servlet">
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Nom </label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" id="nomProjet"
-									name="nomProjet">
+									name="nomProjetAmodifier">
+								<input type="hidden" name="idProjetAmodifier" value="<%= projet.getId_projet()%>"/>
 							</div>
 						</div>
 
-
-
 						<div class="modal-footer">
-							<button type="submit" class="btn btn-default">Modifier</button>
+							<button type="submit" class="btn btn-default" >Modifier</button>
 							<button type="button" class="btn btn-default"
 								data-dismiss="modal" onclick="location.reload()">Fermer</button>
 						</div>
