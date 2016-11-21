@@ -26,13 +26,16 @@ public class Tache {
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_projet")
 	private Projet projet;
-	public Tache(){}
+
+	public Tache() {
+	}
+
 	public Tache(int id_tache, String description, String duree, Projet projet) {
 		super();
 		this.id_tache = id_tache;
 		this.description = description;
 		this.duree = duree;
-	   this.projet = projet;
+		this.projet = projet;
 	}
 
 	// public Tache(String description, String duree, Projet projet,
@@ -48,7 +51,7 @@ public class Tache {
 		super();
 		this.description = description;
 		this.duree = duree;
-		// this.projet = projet;
+		this.projet = projet;
 	}
 
 	public int getId_tache() {
@@ -74,23 +77,24 @@ public class Tache {
 	public void setDuree(String duree) {
 		this.duree = duree;
 	}
-	 public Projet getProjet() {
-	 return projet;
-	 }
-	 public void setProjet(Projet projet) {
-	 this.projet = projet;
-	 }
-	
 
-//	 public Set<Ressource> getRessources() {
-//	 return ressources;
-//	 }
-//	
-//	
-//	
-//	
-//	 public void setRessources(Set<Ressource> ressources) {
-//	 this.ressources = ressources;
-//	 }
+	public Projet getProjet() {
+		return projet;
+	}
+
+	public void setProjet(Projet projet) {
+		this.projet = projet;
+	}
+
+	// public Set<Ressource> getRessources() {
+	// return ressources;
+	// }
+	//
+	//
+	//
+	//
+	// public void setRessources(Set<Ressource> ressources) {
+	// this.ressources = ressources;
+	// }
 
 }

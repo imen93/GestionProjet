@@ -113,7 +113,10 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="panel panel-default">
-						<div class="panel-heading">Taches du projet :</div>
+						<div class="panel-heading">Taches du projet :
+					<a type="button" class="btn btn-default" 
+ 							style={text-align=right} data-toggle="modal" data-target="#myModalAjoutTache" >ajouter</a>	
+						</div>
 						<!-- /.panel-heading -->
 						<div class="panel-body">
 							<table width="100%"
@@ -215,6 +218,57 @@
 
 		</div>
 	</div>
+
+
+
+<!-- modal ajout tache-->
+	<div class="modal fade" id="myModalAjoutTache" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Ajouter une tache</h4>
+				</div>
+
+				<div class="modal-body">
+
+					<form id="formUpdate" class="form-horizontal" role="form" action="Servlet">
+						<div class="form-group">
+							<label class="col-sm-2 control-label" >Description </label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="descriptionTache"
+									name="descriptionTache">
+							</div>
+						
+						</div>
+						
+						<div class="form-group">
+							<label class="col-sm-2 control-label" >Duree </label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="duree"
+									name="duree">
+							</div>
+						
+						</div>
+
+<input type="hidden" name="idProjetTache" value="<%= projet.getId_projet()%>"/>
+
+						<div class="modal-footer">
+							<button type="submit" class="btn btn-default">Ajouter</button>
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal" onclick="location.reload()">Fermer</button>
+						</div>
+
+					</form>
+				</div>
+				<div id="addResp"></div>
+
+			</div>
+
+		</div>
+	</div>
+
+
 
 	<!-- modal update-->
 	<div class="modal fade" id="myModalUpdateProject" role="dialog">

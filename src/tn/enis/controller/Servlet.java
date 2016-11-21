@@ -40,6 +40,8 @@ public class Servlet extends HttpServlet {
 		String requestPramIdSupp;
 		ProjetDAO projetDao = new ProjetDAOImpl();
 		ProjetService serviceProjet = new ProjetServiceImpl(projetDao);
+		TacheDAO tachedao=new TacheDAOImpl();
+		TacheService tacheService=new TacheServiceImpl(tachedao);
 		Projet projet=null;
 		if ((requestPram = request.getParameter("id")) == null) {
 			System.out.println("projet==null");
@@ -67,7 +69,18 @@ public class Servlet extends HttpServlet {
 			Projet projetAmodifier=new Projet(idProjetAmodifier,nomProjetAmodifier);
 			serviceProjet.modifierProduit(projetAmodifier);
 		}
-		
+		String descriptionTache=request.getParameter("descriptionTache");
+		String duree=request.getParameter("duree");
+		if((descriptionTache!=null)&&(duree!=null))
+		{
+			int idProjetTache=Integer.parseInt(request.getParameterValues("idProjetTache")[0]);
+			Projet projetTache = serviceProjet.findByID(idProjetTache);
+			System.out.println(idProjetTache);
+			Tache tacheajouter=new Tache(descriptionTache,duree,projetTache);
+			tacheService.ajoutTache(tacheajouter);
+			
+		}
+			
 		TacheDAO tacheDao = new TacheDAOImpl();
 		TacheService serviceTache = new TacheServiceImpl(tacheDao);
 		List<Tache> taches = serviceTache.findByProjet(projet.getId_projet());
