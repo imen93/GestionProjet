@@ -163,7 +163,7 @@
 								data-target="#myModalUpdateProject"></i>
 						</button>
 						<button type="button" class="btn btn-danger btn-circle btn-lg"
-							data-toggle="modal" data-target="#myModalProjet">
+							data-toggle="modal" data-target="#myModalProjet" >
 							<i class="fa fa-times"></i>
 						</button>
 					</div>
@@ -189,13 +189,14 @@
 
 				<div class="modal-body">
 
-					<form id="formUpdate" class="form-horizontal" role="form">
+					<form id="formUpdate" class="form-horizontal" role="form" action="Servlet">
 						<div class="form-group">
-							<label class="col-sm-2 control-label">Nom </label>
+							<label class="col-sm-2 control-label" >Nom </label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" id="nomProjet"
 									name="nomProjet">
 							</div>
+						
 						</div>
 
 
@@ -338,9 +339,9 @@
 				</h4>
 				<p>Voulez vous vraiment supprimer ce projet ?</p>
 				<p>
-					<button type="button" class="btn btn-danger" name="submitDelete">Supprimer</button>
-					<button type="reset" onclick="location.reload()"
-						class="btn btn-link">Annuler</button>
+					<a href="Servlet?idSupp=<%=projet.getId_projet()%>" type="button" class="btn btn-danger" name="submitDelete">Supprimer</a>
+					<a type="reset" onclick="location.reload()"
+						class="btn btn-link">Annuler</a>
 				</p>
 
 			</div>

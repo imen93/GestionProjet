@@ -15,7 +15,10 @@ public class TacheDAOImpl extends GenericDaoImpl<Tache, BigDecimal> implements
 	public Tache findByDescription(String description) {
 		Session hibernateSession = this.getSession();
 		Tache tache = null;
-		tache = (Tache) hibernateSession.get(Tache.class, description);
+		String hql = "FROM Tache t WHERE t.description = :description";
+		Query query = hibernateSession.createQuery(hql);
+		query.setParameter("description",description);
+		tache = (Tache) query.list().get(0);
 		return tache;
 	}
 

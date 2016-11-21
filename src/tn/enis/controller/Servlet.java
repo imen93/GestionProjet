@@ -37,25 +37,39 @@ public class Servlet extends HttpServlet {
 		response.getWriter().append("Served at: ")
 				.append(request.getContextPath());
 		String requestPram;
+		String requestPramIdSupp;
 		ProjetDAO projetDao = new ProjetDAOImpl();
-		ProjetService service = new ProjetServiceImpl(projetDao);
-		Projet projet;
+		ProjetService serviceProjet = new ProjetServiceImpl(projetDao);
+		Projet projet=null;
 		if ((requestPram = request.getParameter("id")) == null) {
 			System.out.println("projet==null");
-			projet = service.findByID(1);
+			projet = serviceProjet.findByID(1);
 		} else {
 			int id = Integer.parseInt(request.getParameter("id"));
 			projetDao = new ProjetDAOImpl();
-			service = new ProjetServiceImpl(projetDao);
-			projet = service.findByID(id);
+			serviceProjet = new ProjetServiceImpl(projetDao);
+			projet = serviceProjet.findByID(id);
 
 		}
+		String nomProjet=request.getParameter("nomProjet");
+		if(nomProjet!=null){
+			Projet projetAjoute=new Projet(nomProjet);
+			serviceProjet.ajoutProjet(projetAjoute);
+		}
+		if((requestPramIdSupp = request.getParameter("idSupp")) != null)
+		{
+			Projet projetSupp=serviceProjet.findByID(Integer.parseInt(requestPramIdSupp));
+			serviceProjet.supprimerProduit(projetSupp);
+		}
+		
 		TacheDAO tacheDao = new TacheDAOImpl();
 		TacheService serviceTache = new TacheServiceImpl(tacheDao);
 		List<Tache> taches = serviceTache.findByProjet(projet.getId_projet());
 		request.getSession().setAttribute("projet", projet);
 		request.getSession().setAttribute("taches", taches);
 		getServletContext().getRequestDispatcher("/pages/index.jsp").forward(request, response);
+		
+	
 	}
 
 	protected void doPost(HttpServletRequest request,
