@@ -9,4 +9,6 @@ public interface TacheService {
 	public void chercherTache(String description);
 	public Tache findByID(Integer id);
     public List<Tache> findAll();
+    public List<Tache> findByProjet(Integer id);
+
 }

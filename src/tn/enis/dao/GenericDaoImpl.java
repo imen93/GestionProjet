@@ -61,5 +61,5 @@ public class GenericDaoImpl<T, ID extends Serializable> implements
 		T = (List<T>) query.list();
 		return T;
 	}
-
+	
 }

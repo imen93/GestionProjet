@@ -5,17 +5,19 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 @Entity
 @Table(name = "projet")
 public class Projet {
 	@Id
+	@GeneratedValue
 	@Column(name = "id_projet", unique = true, nullable = false)
-	@GeneratedValue	
-private int id_projet;
+	private int id_projet;
 	@Column(name = "nom_projet", nullable = false, length = 40)
-private String nom_projet;
-	
-	public Projet() {}
+	private String nom_projet;
+
+	public Projet() {
+	}
 
 	public int getId_projet() {
 		return id_projet;
@@ -38,7 +40,4 @@ private String nom_projet;
 		this.nom_projet = nom_projet;
 	}
 
-
-	
-	
 }

@@ -12,6 +12,7 @@ public class ProjetDAOImpl extends GenericDaoImpl<Projet, BigDecimal> implements
 	Projet projet = null;
 	projet = (Projet) hibernateSession.get(Projet.class,nomProjet);
 	return projet ;}
+	
 }
 
 

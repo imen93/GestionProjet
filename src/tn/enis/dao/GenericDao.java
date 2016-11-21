@@ -16,5 +16,4 @@ public interface GenericDao <T, ID extends Serializable> {
 	
     @SuppressWarnings("rawtypes")
 	public List<T> findAll(Class clazz);
-
     }
