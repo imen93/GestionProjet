@@ -24,9 +24,13 @@ public class TacheServiceImpl implements TacheService {
 	}
 
 	@Override
-	public void modifierTache(Tache tache) {
-		tachedao.modifier(tache);
-
+	public boolean modifierTache(Tache tache) {
+		if (tachedao.findByID(Tache.class, tache.getId_tache()) != null) {
+			tachedao.modifier(tache);
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
