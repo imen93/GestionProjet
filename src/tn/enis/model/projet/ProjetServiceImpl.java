@@ -18,19 +18,25 @@ public ProjetServiceImpl(ProjetDAO projetdao){
 	}
 
 	@Override
-	public void supprimerProduit(Projet projet) {
+	public void supprimerProjet(Projet projet) {
 		projetdao.supprimer(projet);
 		
 	}
 
 	@Override
-	public void modifierProduit(Projet projet) {
-		projetdao.modifier(projet);
+	public boolean modifierProjet(Projet projet) {
+		if (projetdao.findByID(Projet.class, projet.getId_projet())!=null)
+		{
+			projetdao.modifier(projet);
+			return true;
+		}else{
+			return false;
+		}
 		
 	}
 
 	@Override
-	public void chercherProduit(String nomProjet) {
+	public void chercherProjet(String nomProjet) {
 		projetdao.findByNom(nomProjet);
 		
 	}

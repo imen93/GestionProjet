@@ -140,8 +140,8 @@
 										<td><%=tache.getDuree()%></td>
 										<td><a href='#myModalUpdateTache' data-toggle="modal"
 											class="xcrud-action btn btn-info btn-sm" title="Modifier"
-											href="javascript:;" data-primary="1" data-task="view"> <i
-												class="fa fa-edit"></i></a> <a href='#myModal'
+											href="javascript:;" data-primary="1" data-task="view" value="<%=tache.getId_tache()%>" name="btnsupp"> <i
+												class="fa fa-edit" name="btnSupp"></i></a> <a href='#myModal'
 											data-toggle="modal"
 											class="xcrud-action btn btn-danger btn-sm" title="Supprimer"
 											href="javascript:;" data-primary="1" data-task="view"><i
@@ -314,7 +314,6 @@
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<h4 class="modal-title">Modifier une tache</h4>
 				</div>
-
 				<div class="modal-body">
 
 					<form id="formUpdate" class="form-horizontal" role="form">
@@ -354,7 +353,7 @@
 			<div class="alert alert-danger alert-dismissible fade in"
 				role="alert">
 
-
+				
 				<button type="button" onclick="location.reload()" class="close"
 					data-dismiss="alert" aria-label="Close">
 					<span aria-hidden="true">x</span>
@@ -365,7 +364,8 @@
 				</h4>
 				<p>Voulez vous vraiment supprimer cette tache ?</p>
 				<p>
-					<button type="button" class="btn btn-danger" name="submitDelete">Supprimer</button>
+				
+					<a href="Servlet" type="button" class="btn btn-danger" name="submitDelete">Supprimer</a>
 					<button type="reset" onclick="location.reload()"
 						class="btn btn-link">Annuler</button>
 				</p>
